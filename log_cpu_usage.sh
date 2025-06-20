@@ -1,4 +1,6 @@
 ### log_cpu_usage.sh
+#### m h  dom mon dow   command
+### * * * * * /home/hermanto/cpu-log/log_cpu_usage.sh ##crontab -e ##
 
 #!/bin/bash
 
