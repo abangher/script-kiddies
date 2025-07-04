@@ -1,0 +1,5 @@
+# step by step build .iso to .img on proxmox
+
+-qm shutdown 101
+-qm config 101
+-dd if=/dev/pve/vm-101-disk-0 of=/var/lib/vz/ubuntu-custom.img bs=4M status=progress
