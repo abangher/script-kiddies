@@ -1,3 +1,64 @@
 ## cara cepat #
 growpart /dev/vda 1
 resize2fs /dev/vda1
+
+## lvm root #
+#step1 
+#jalankan di shell vm:
+qm resize 101 scsi0 +750G
+========================================================================================
+#step2
+#jalanin di vm client
+sudo parted /dev/sdX itu trus
+print
+Fix
+resizepart 5
+-0
+quit
+lsblk
+lvdisplay (logical volume) / vgdisplay (volume group) / pvdisplay (physical volume)
+==========================================================================================
+#step3
+#jalanin di vm client
+sudo pvresize /dev/sda2
+sudo lvdisplay
+sudo lvextend -l +100%FREE /dev/netdevel-vg/root / lvextend -l +100%FREE /dev/sda3/
+sudo resize2fs (LVPATH)
+==========================================================================================
+cara 2 untuk root bukan lvm
+
+
+
+## cara cepat #
+growpart /dev/vda 1
+resize2fs /dev/vda1
+ 
+ parted
+ print all
+ Fix
+ resizepart 1
+ End?  [161GB]? 300G
+
+/dev/sda1       271G   15G  257G   6% /
+resize2fs /dev/sda1
+df -h
+
+================================================================================================
+
+
+qm resize 102 scsi0 +150G
+
+
+lvextend -l +100%FREE /dev/sda2
+resize2fs /dev/sda2
+
+
+
+qm resize 103 virtio0 +80G
+
+qm resize 103 scsi0 +60G
+qm resize 100 scsi0 +250G
+
+qm resize 102 virtio0 +460G
+
+qm resize 103 scsi0 +140G
